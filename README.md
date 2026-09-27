@@ -157,9 +157,12 @@ bench --site your.site set-config allow_tests true
 bench --site your.site run-tests --app docstudio
 ```
 
-## Support
+## Documentation and support
 
-Questions and bug reports: open a GitHub issue or email cipstudioz@gmail.com.
+- [User Guide](docs/USER_GUIDE.md)
+- [Support](docs/SUPPORT.md): open a GitHub issue or email cipstudioz@gmail.com
+- [Privacy Policy](docs/PRIVACY.md)
+- [Terms of Service](docs/TERMS.md)
 
 ## License
 
