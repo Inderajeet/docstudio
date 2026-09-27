@@ -46,7 +46,6 @@ export class Renderer {
 		)}">${sections}</div>`;
 	}
 
-	// ── nodes ──────────────────────────────────────────────
 	node(n, { extra_style = null, block = false, tag = null } = {}) {
 		if (!n) return "";
 		const style = { ...(extra_style || {}), ...(n.style || {}) };
@@ -107,7 +106,6 @@ export class Renderer {
 		return rows ? `<table class="ds-kv ${cls}">${rows}</table>` : "";
 	}
 
-	// ── sections ───────────────────────────────────────────
 	s_letterhead(s) {
 		const c = s.company;
 		const lines = c.lines.map((n) => this.node(n, { block: true })).join("");

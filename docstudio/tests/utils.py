@@ -1,9 +1,4 @@
-"""Test fixtures: custom DocTypes created at test time (never shipped to sites).
-
-``DocStudio Test Record`` exercises every auto-layout rule: a company-like link, sections,
-a column break, an empty section, a child table with list-view/hidden/print-hidden columns,
-currency and date fields, totals and a Text Editor.
-"""
+"""Test fixtures: custom DocTypes created at test time (never shipped to sites)."""
 
 import frappe
 

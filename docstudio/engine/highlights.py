@@ -1,7 +1,4 @@
-"""Which field is the title / party / date / total / company of a record.
-
-Template settings win; otherwise we guess from fieldnames and labels.
-"""
+"""Which field is the title / party / date / total / company of a record."""
 
 import re
 

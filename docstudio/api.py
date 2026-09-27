@@ -144,8 +144,7 @@ def attach_docx(doctype, name, template=None, theme=None, save_mode=None, patch=
 
 
 def template_for_update(doctype, template=None):
-	"""The template an admin action writes to; with none (Auto layout) an Auto template is
-	created and made the default so the change applies to future documents."""
+	"""The template an admin action writes to; creates a default Auto template if there is none."""
 	frappe.only_for("System Manager")
 	from docstudio.engine.access import is_doctype_supported
 

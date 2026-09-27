@@ -1,33 +1,4 @@
-"""The DocModel: one JSON structure consumed by the HTML preview and the .docx writer.
-
-Shape::
-
-	{
-		"version": 1,
-		"meta": {doctype, name, template, theme, save_mode, docstatus, modified, ...},
-		"theme": {...resolved theme values...},
-		"sections": [section, ...],
-	}
-
-Every section has ``id``, ``type`` and optional ``label``/``hidden``. Section types:
-
-- ``letterhead``: ``company`` = {"name": node, "lines": [node], "logo": url|None}
-- ``title``: ``heading`` node, optional ``subtitle`` node
-- ``header``: ``left`` = {"title": str, "items": [node]} | None, ``right`` = {"items": [node]}
-- ``fields``: ``columns`` = [[node, ...], ...], ``boxed`` bool
-- ``table``: ``table`` fieldname, ``columns`` [{field, label, fieldtype, align}], ``rows``
-  [{"name", "cells": [node]}], ``can_edit_rows`` bool
-- ``totals``: ``items`` [node]
-- ``rich_text`` / ``terms``: ``node`` (a node whose display is sanitized HTML)
-- ``signature``: ``lines`` [node]
-
-Nodes are either ``value`` nodes bound to a field (``bind`` = {"field", "table", "row"}) or
-``text`` nodes (free text, e.g. headings). ``editable`` says whether the user may click
-it; ``writable`` says the edit is a typed field value (goes into ``patch.fields``/``rows``)
-rather than a display-only override. ``style`` holds per-node formatting.
-
-Node ids are deterministic so a saved edits patch can be re-applied to a freshly built model.
-"""
+"""The DocModel: one JSON structure consumed by the HTML preview and the .docx writer."""
 
 from frappe import _
 

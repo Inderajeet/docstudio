@@ -1,14 +1,4 @@
-"""Auto layout: a business document for any DocType, built only from its meta.
-
-Rules (see README for the user-facing version):
-
-- Letterhead from the company field's linked record; title = DocType name in caps.
-- Header row: party "To" box on the left, number and dates on the right.
-- Section Breaks become sections (empty ones are dropped), Column Breaks become side-by-side
-  boxes, child tables become real tables with an S.No column, total fields become a bold
-  totals block under the last table, Text Editor fields become rich text.
-- Hidden, print_hide, empty, layout-only and system fields are skipped.
-"""
+"""Auto layout: a business document for any DocType, built only from its meta."""
 
 import frappe
 from frappe import _
@@ -100,9 +90,6 @@ def main_table_index(sections):
 	return i
 
 
-# ── letterhead / title / header ─────────────────────────────
-
-
 def letterhead_section(ctx, company):
 	return m.section(
 		"s:letterhead",
@@ -176,9 +163,6 @@ def header_section(ctx, consumed):
 			right.append(ctx.field_node(fieldname))
 			consumed.add(fieldname)
 	return m.section("s:header", "header", left=left, right={"items": right})
-
-
-# ── body ────────────────────────────────────────────────────
 
 
 def _skip(ctx, df, consumed):

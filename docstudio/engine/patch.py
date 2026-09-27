@@ -1,20 +1,4 @@
-"""The edits patch: everything a user changed in the preview, as data.
-
-Shape::
-
-	{
-		"fields": {fieldname: value},
-		"rows": {table_fieldname: {rowname: {fieldname: value}}},
-		"added_rows": {table_fieldname: [{"name": "new-1", fieldname: value, ...}]},
-		"deleted_rows": {table_fieldname: [rowname, ...]},
-		"overrides": {node_id: "display text or sanitized html"},
-		"styles": {node_id: {bold, italic, underline, size, color, align}},
-		"layout": {"order": [section_id], "hidden": [section_id], "hidden_nodes": [node_id]},
-	}
-
-The browser only ever sends this patch. The server rebuilds the model from the database and
-applies it, so nothing the client sends is trusted as layout or HTML.
-"""
+"""The edits patch: everything a user changed in the preview, as data."""
 
 import copy
 import json
@@ -66,9 +50,6 @@ def is_empty_patch(patch):
 	return not any(patch.get(k) for k in EMPTY)
 
 
-# ── record changes ──────────────────────────────────────────
-
-
 def _field_df(meta, fieldname):
 	df = meta.get_field(fieldname)
 	if not df or df.fieldtype not in TYPED_EDITABLE or df.fieldtype == "Read Only":
@@ -84,11 +65,7 @@ def _table_df(meta, fieldname):
 
 
 def apply_to_doc(doc, patch, strict=False):
-	"""Apply record changes to ``doc`` in memory.
-
-	strict=True (Save to Form) additionally enforces write permission, read-only flags,
-	permlevels and docstatus for every single field; any violation throws.
-	"""
+	"""Apply record changes to ``doc`` in memory."""
 	from docstudio.engine.access import SAVE_TO_FORM
 	from docstudio.engine.context import BuildContext
 
@@ -169,9 +146,6 @@ def recalculate(doc, patch):
 				row.amount = flt(row.get(qty_field)) * flt(row.rate)
 
 
-# ── display changes ─────────────────────────────────────────
-
-
 def clean_style(style):
 	out = {}
 	if not isinstance(style, dict):
@@ -216,10 +190,7 @@ def column_key(section_id, fieldname):
 
 
 def apply_layout(model, layout):
-	"""Section order, section/field/column visibility and page breaks.
-
-	``hidden*``/``shown*`` pairs let a document-level layout undo a template-level hide.
-	"""
+	"""Section order, section/field/column visibility and page breaks."""
 	if not layout:
 		return
 	sections = model["sections"]

@@ -69,7 +69,6 @@ export class Preview {
 		return !!this.$root;
 	}
 
-	// ── open / close ───────────────────────────────────────
 	async open() {
 		if (this.frm.is_dirty()) {
 			frappe.msgprint(__("Save your changes on the form before opening the preview."));
@@ -174,7 +173,6 @@ export class Preview {
 		this.frm.page.page_actions.hide();
 	}
 
-	// ── toolbar ────────────────────────────────────────────
 	can_edit_hint() {
 		if (this.save_mode === DOCUMENT_ONLY) {
 			return __("Click any underlined text to edit. Changes are kept with the document only.");
@@ -303,7 +301,6 @@ export class Preview {
 		this.$root.find(".ds-loading span").text(msg);
 	}
 
-	// ── rendering ──────────────────────────────────────────
 	show_model(model) {
 		this.model = model;
 		this.nodes = {};
@@ -363,7 +360,6 @@ export class Preview {
 		};
 	}
 
-	// ── editing ────────────────────────────────────────────
 	commit(node, value) {
 		this.state.set_value(node, value);
 		this.set_status(__("Unsaved changes"));
@@ -449,7 +445,6 @@ export class Preview {
 		}
 	}
 
-	// ── save / export ──────────────────────────────────────
 	async save() {
 		this.editor.finish_active(true);
 		// Let the blur-commit settle before reading the patch.

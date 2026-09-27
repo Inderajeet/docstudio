@@ -1,24 +1,4 @@
-"""Template resolution and the single ``build_model`` entry point.
-
-Extension points (declared in any app's ``hooks.py``)::
-
-        # A custom layout from another app. ``builder(ctx)`` returns a list of
-        # sections (see docstudio.engine.model); it may start from auto_layout.build_sections(ctx).
-        docstudio_templates = [
-            {
-                "key": "acme_po",
-                "label": "ACME Purchase Order",
-                "doctype": "Purchase Order",
-                "builder": "acme_app.docstudio.purchase_order.build",
-            },
-        ]
-
-        # Called with (ctx, model) after every build: tweak or annotate the model.
-        docstudio_model_processors = ["my_app.docstudio.add_watermark_note"]
-
-        # Called with (doc) before totals are refreshed in the preview.
-        docstudio_recalculate = ["my_app.docstudio.recalc_work_order"]
-"""
+"""Template resolution and the single ``build_model`` entry point."""
 
 import frappe
 from frappe import _

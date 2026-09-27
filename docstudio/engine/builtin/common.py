@@ -1,9 +1,4 @@
-"""Building blocks for hand-designed templates.
-
-Built-in layouts never read fieldnames directly: they ask for a *slot* (``ctx.mapped``) whose
-default fieldname can be remapped per site in the template's Field Mapping table. Missing or
-empty fields are simply left out, so a layout degrades gracefully on customised DocTypes.
-"""
+"""Building blocks for hand-designed templates."""
 
 import frappe
 from frappe import _

@@ -1,15 +1,10 @@
-"""Phase 1 built-in layouts: Quotation, Sales Invoice, Purchase Order, Delivery Note, Job Offer.
-
-Each builder takes a BuildContext and returns sections. Field names below are only defaults:
-sites remap them through the template's Field Mapping.
-"""
+"""Built-in layouts: Quotation, Sales Invoice, Purchase Order, Delivery Note, Job Offer."""
 
 from frappe import _
 
 from docstudio.engine import model as m
 from docstudio.engine.builtin import common as c
 
-# ── shared slot defaults ────────────────────────────────────
 
 PARTY_SLOTS = {
 	"company": ("company", "Company whose letterhead and signature are used"),
@@ -97,8 +92,6 @@ def _commercial(
 	return c.compact(sections)
 
 
-# ── Quotation ───────────────────────────────────────────────
-
 QUOTATION_SLOTS = _slots(
 	PARTY_SLOTS,
 	ITEM_SLOTS,
@@ -119,8 +112,6 @@ def quotation(ctx):
 		[("date", _("Date")), ("valid_till", _("Valid Till"))],
 	)
 
-
-# ── Sales Invoice (GST friendly) ────────────────────────────
 
 SALES_INVOICE_SLOTS = _slots(
 	PARTY_SLOTS,
@@ -149,8 +140,6 @@ def sales_invoice(ctx):
 	)
 
 
-# ── Purchase Order ──────────────────────────────────────────
-
 PURCHASE_ORDER_SLOTS = _slots(
 	PARTY_SLOTS,
 	ITEM_SLOTS,
@@ -174,8 +163,6 @@ def purchase_order(ctx):
 		extra_details=[("deliver_to", _("Deliver To"))],
 	)
 
-
-# ── Delivery Note ───────────────────────────────────────────
 
 DELIVERY_NOTE_SLOTS = _slots(
 	PARTY_SLOTS,
@@ -208,8 +195,6 @@ def delivery_note(ctx):
 		with_prices=False,
 	)
 
-
-# ── Job Offer (HRMS): letter style ──────────────────────────
 
 JOB_OFFER_SLOTS = {
 	"company": ("company", "Company"),

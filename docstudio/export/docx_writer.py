@@ -1,8 +1,4 @@
-"""Write a DocModel to .docx with python-docx.
-
-This is the only place .docx files are produced. It knows nothing about editing: dotted
-underlines, toolbars and handles exist only in the browser and never reach this code.
-"""
+"""Write a DocModel to .docx with python-docx."""
 
 import os
 from io import BytesIO
@@ -41,7 +37,6 @@ class DocxWriter:
 		self.theme = model["theme"]
 		self.doc = None
 
-	# ── setup ───────────────────────────────────────────────
 	def build(self):
 		self.setup()
 		self.write_sections()
@@ -87,12 +82,7 @@ class DocxWriter:
 		pf.line_spacing = flt(self.theme["line_spacing"]) or 1.15
 
 	def _set_fonts(self, rPr, size_pt=None, bold=False, italic=False):
-		"""Set every rFonts slot, including w:cs (complex scripts such as Tamil).
-
-		Complex-script text only honours the *Cs variants of size/bold/italic, so those are set
-		alongside the regular ones. Elements are inserted in schema order (Word rejects files
-		with out-of-order run properties).
-		"""
+		"""Set every rFonts slot, including w:cs (complex scripts such as Tamil)."""
 		from docx.oxml.ns import qn
 
 		rFonts = rPr.get_or_add_rFonts()
@@ -108,7 +98,6 @@ class DocxWriter:
 			_ensure(rPr, "w:szCs").set(qn("w:val"), str(round(flt(size_pt) * 2)))
 		_ensure(rPr, "w:lang").set(qn("w:bidi"), "ta-IN")
 
-	# ── primitives ──────────────────────────────────────────
 	def run(self, paragraph, text, style=None):
 		from docx.shared import Pt
 
@@ -213,7 +202,6 @@ class DocxWriter:
 
 		return Mm(value)
 
-	# ── tables ──────────────────────────────────────────────
 	def table(self, container, rows, cols, widths_mm):
 		from docx.oxml.ns import qn
 
@@ -291,7 +279,6 @@ class DocxWriter:
 		p.paragraph_format.line_spacing = Pt(pt)
 		return p
 
-	# ── sections ────────────────────────────────────────────
 	def write_sections(self):
 		for s in self.model["sections"]:
 			if s.get("hidden"):
@@ -675,11 +662,7 @@ SEQ = {
 
 
 def _ensure(parent, tag, replace=False):
-	"""Get (or replace) a child of a *Pr element, inserted at its schema position.
-
-	Word refuses to open files whose property elements are out of order, so nothing is
-	ever simply appended.
-	"""
+	"""Get (or replace) a child of a *Pr element, inserted at its schema position."""
 	from docx.oxml import OxmlElement
 	from docx.oxml.ns import qn
 

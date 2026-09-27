@@ -1,16 +1,4 @@
-"""Built-in (hand-designed) templates shipped with DocStudio.
-
-Each entry: key -> {
-	"doctype": DocType it is for,
-	"template_name": name of the DocStudio Template created by sync,
-	"builder": fn(ctx) -> sections,
-	"slots": {slot: (default fieldname, description)},
-	"requires": fieldnames the DocType must have (so a same-named custom DocType is skipped),
-	"slot_tables": {slot prefix: table slot} for slots that refer to child-table columns,
-}
-
-A template is only created on sites where its DocType exists with the required fields.
-"""
+"""Built-in (hand-designed) templates shipped with DocStudio."""
 
 from docstudio.engine.builtin import layouts
 

@@ -12,11 +12,7 @@ def docx_filename(doctype, name):
 
 
 def save_file(fname, content, attached_to_doctype, attached_to_name, is_private=1):
-	"""Save ``content`` under exactly ``fname`` attached to a record, replacing an older copy.
-
-	Inserting a File with ``content`` (rather than frappe.utils.file_manager.save_file) writes
-	the file once, so Frappe doesn't append a hash suffix to the file name.
-	"""
+	"""Save ``content`` under exactly ``fname`` attached to a record, replacing an older copy."""
 	for old in frappe.get_all(
 		"File",
 		filters={

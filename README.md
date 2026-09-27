@@ -149,8 +149,8 @@ everything works on the same content model.
 
 ### Architecture and tests
 
-See [CLAUDE.md](CLAUDE.md) for the architecture (one content model shared by the preview and
-the `.docx` writer) and [docs/TESTING.md](docs/TESTING.md) for manual test steps.
+The preview and the `.docx` writer share one content model (`docstudio/engine/model.py`), so
+what you see is what you download. Manual test steps are in [docs/TESTING.md](docs/TESTING.md).
 
 ```bash
 bench --site your.site set-config allow_tests true

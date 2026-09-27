@@ -1,8 +1,4 @@
-"""Letterhead and signature data from the record linked by the company field.
-
-Works for ERPNext's Company as well as any custom "company-like" DocType: fields are
-looked up by common names and only used when they exist on that DocType.
-"""
+"""Letterhead and signature data from the record linked by the company field."""
 
 import re
 

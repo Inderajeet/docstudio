@@ -1,8 +1,4 @@
-"""BuildContext: everything a layout builder needs, including editability rules.
-
-Custom template builders (see ``docstudio.engine.registry``) receive one of these, so they
-never need to re-implement permission or formatting rules.
-"""
+"""BuildContext: everything a layout builder needs, including editability rules."""
 
 import frappe
 
@@ -21,7 +17,6 @@ class BuildContext:
 		self.preview = preview  # False when building for export: nothing is editable
 		self._write_levels = None
 
-	# ── editability ──────────────────────────────────────────
 	@property
 	def document_only(self):
 		return self.save_mode == DOCUMENT_ONLY
@@ -68,7 +63,6 @@ class BuildContext:
 			return True
 		return self.field_writable(frappe._dict(table_df.as_dict(), fieldtype="Data"))
 
-	# ── node helpers ─────────────────────────────────────────
 	def field_node(self, fieldname, label=None):
 		df = self.meta.get_field(fieldname)
 		if not df:

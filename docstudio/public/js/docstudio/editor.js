@@ -60,7 +60,6 @@ export class InlineEditor {
 		});
 	}
 
-	// ── plain text / numbers ───────────────────────────────
 	start_plain($el, node) {
 		const el = $el[0];
 		const original = el.innerHTML;
@@ -111,7 +110,6 @@ export class InlineEditor {
 		$el.on("blur.ds-edit", () => setTimeout(() => active.finish(true), 0));
 	}
 
-	// ── Frappe controls (Link, Date, Select, Check) ────────
 	start_control($el, node) {
 		const original = $el.html();
 		const is_check = node.fieldtype === "Check";
@@ -157,7 +155,6 @@ export class InlineEditor {
 		this._outside_click($el, active);
 	}
 
-	// ── rich text (Text Editor fields, terms) ──────────────
 	start_rich($el, node) {
 		const el = $el[0];
 		const original = el.innerHTML;

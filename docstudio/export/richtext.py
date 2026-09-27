@@ -1,7 +1,4 @@
-"""Parse the restricted rich-text HTML (Quill / sanitized) into blocks of styled runs.
-
-Used by the .docx writer; the preview shows the same HTML directly.
-"""
+"""Parse the restricted rich-text HTML (Quill / sanitized) into blocks of styled runs."""
 
 import re
 from html.parser import HTMLParser

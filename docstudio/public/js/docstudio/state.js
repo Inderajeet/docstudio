@@ -74,7 +74,6 @@ export class PatchState {
 		return true;
 	}
 
-	// ── edits ──────────────────────────────────────────────
 	set_value(node, value) {
 		this.snapshot();
 		if (node.writable) {

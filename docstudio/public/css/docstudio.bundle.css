@@ -1,7 +1,6 @@
 /* DocStudio preview. Page styles mirror docstudio/export/docx_writer.py.
    Anything editor-only (.ds-ed underline, .ds-ui chrome, toolbar) never reaches the .docx. */
 
-/* ── toolbar (lives inside Frappe's sticky .page-head, so it sits in the same place on every DocType) ── */
 /* Frappe slides the page head away on scroll-down (inline top:-15px); keep it pinned while previewing. */
 body.ds-preview-open .page-head {
 	top: var(--navbar-height) !important;
@@ -84,7 +83,6 @@ body.ds-preview-open .page-head {
 	min-width: 70px !important;
 }
 
-/* ── canvas ── */
 .ds-root {
 	position: relative;
 	background: var(--gray-100, #f3f4f6);
@@ -130,7 +128,6 @@ body.ds-preview-open .page-head {
 	}
 }
 
-/* ── page ── */
 .ds-page {
 	box-sizing: border-box;
 	width: var(--ds-page-w);
@@ -435,7 +432,6 @@ div.ds-ed {
 	min-width: 28px;
 }
 
-/* ── section tools, visibility (preview only) ── */
 /* Sections reach into the left page margin so the drag handle (and the pointer while dragging
    down that margin) is inside the section box. Content position is unchanged. */
 .ds-sec {
