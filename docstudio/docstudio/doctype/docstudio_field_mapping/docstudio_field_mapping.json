@@ -1,0 +1,49 @@
+{
+ "actions": [],
+ "creation": "2026-09-26 10:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "slot",
+  "fieldname",
+  "description"
+ ],
+ "fields": [
+  {
+   "columns": 3,
+   "fieldname": "slot",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Slot",
+   "reqd": 1
+  },
+  {
+   "columns": 3,
+   "description": "Fieldname on the reference DocType (or child table) that fills this slot. Leave empty to hide the slot.",
+   "fieldname": "fieldname",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fieldname"
+  },
+  {
+   "columns": 4,
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Description",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-26 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DocStudio",
+ "name": "DocStudio Field Mapping",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

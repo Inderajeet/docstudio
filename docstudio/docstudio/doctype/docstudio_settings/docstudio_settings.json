@@ -1,0 +1,113 @@
+{
+ "actions": [],
+ "creation": "2026-09-26 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "general_section",
+  "enabled",
+  "default_theme",
+  "default_save_mode",
+  "column_break_gen",
+  "attach_on_download",
+  "access_section",
+  "allowed_roles",
+  "column_break_access",
+  "excluded_doctypes",
+  "templates_section",
+  "sync_standard_templates"
+ ],
+ "fields": [
+  {
+   "fieldname": "general_section",
+   "fieldtype": "Section Break",
+   "label": "General"
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enable DocStudio"
+  },
+  {
+   "fieldname": "default_theme",
+   "fieldtype": "Link",
+   "label": "Default Theme",
+   "options": "DocStudio Theme"
+  },
+  {
+   "default": "Save to Form",
+   "description": "Submitted and cancelled records always save as document only.",
+   "fieldname": "default_save_mode",
+   "fieldtype": "Select",
+   "label": "Default Save Mode",
+   "options": "Save to Form\nSave as Document Only"
+  },
+  {
+   "fieldname": "column_break_gen",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attach_on_download",
+   "fieldtype": "Check",
+   "label": "Attach Downloaded .docx to the Record"
+  },
+  {
+   "fieldname": "access_section",
+   "fieldtype": "Section Break",
+   "label": "Access"
+  },
+  {
+   "description": "Leave empty to allow every user who can read the record.",
+   "fieldname": "allowed_roles",
+   "fieldtype": "Table MultiSelect",
+   "label": "Allowed Roles",
+   "options": "DocStudio Role"
+  },
+  {
+   "fieldname": "column_break_access",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "excluded_doctypes",
+   "fieldtype": "Table MultiSelect",
+   "label": "Excluded DocTypes",
+   "options": "DocStudio Excluded DocType"
+  },
+  {
+   "fieldname": "templates_section",
+   "fieldtype": "Section Break",
+   "label": "Standard Templates and Themes"
+  },
+  {
+   "description": "Creates or updates the themes and built-in templates shipped with DocStudio. Built-in templates are only created for DocTypes that exist on this site.",
+   "fieldname": "sync_standard_templates",
+   "fieldtype": "Button",
+   "label": "Sync Standard Templates"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-09-27 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DocStudio",
+ "name": "DocStudio Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

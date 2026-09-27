@@ -1,0 +1,203 @@
+{
+ "actions": [],
+ "autoname": "field:theme_name",
+ "creation": "2026-09-26 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "theme_name",
+  "is_standard",
+  "typography_section",
+  "font_family",
+  "base_font_size",
+  "heading_font_size",
+  "line_spacing",
+  "column_break_typo",
+  "primary_color",
+  "text_color",
+  "heading_align",
+  "tables_section",
+  "table_style",
+  "header_shading",
+  "column_break_tables",
+  "border_color",
+  "page_section",
+  "page_size",
+  "column_break_page",
+  "margin_top",
+  "margin_bottom",
+  "margin_left",
+  "margin_right"
+ ],
+ "fields": [
+  {
+   "fieldname": "theme_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Theme Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "is_standard",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Standard",
+   "read_only": 1
+  },
+  {
+   "fieldname": "typography_section",
+   "fieldtype": "Section Break",
+   "label": "Typography"
+  },
+  {
+   "default": "Arial",
+   "description": "Use Noto Sans Tamil for Tamil text. Word uses the same font for complex scripts.",
+   "fieldname": "font_family",
+   "fieldtype": "Select",
+   "label": "Font Family",
+   "options": "Arial\nCalibri\nCambria\nGeorgia\nTimes New Roman\nVerdana\nNoto Sans\nNoto Serif\nNoto Sans Tamil"
+  },
+  {
+   "default": "10",
+   "fieldname": "base_font_size",
+   "fieldtype": "Int",
+   "label": "Base Font Size (pt)",
+   "non_negative": 1
+  },
+  {
+   "default": "16",
+   "fieldname": "heading_font_size",
+   "fieldtype": "Int",
+   "label": "Heading Font Size (pt)",
+   "non_negative": 1
+  },
+  {
+   "default": "1.15",
+   "fieldname": "line_spacing",
+   "fieldtype": "Float",
+   "label": "Line Spacing",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_typo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "#1F3864",
+   "fieldname": "primary_color",
+   "fieldtype": "Color",
+   "label": "Primary Color"
+  },
+  {
+   "default": "#222222",
+   "fieldname": "text_color",
+   "fieldtype": "Color",
+   "label": "Text Color"
+  },
+  {
+   "default": "Center",
+   "fieldname": "heading_align",
+   "fieldtype": "Select",
+   "label": "Title Alignment",
+   "options": "Center\nLeft\nRight"
+  },
+  {
+   "fieldname": "tables_section",
+   "fieldtype": "Section Break",
+   "label": "Tables"
+  },
+  {
+   "default": "Bordered",
+   "fieldname": "table_style",
+   "fieldtype": "Select",
+   "label": "Table Style",
+   "options": "Bordered\nMinimal"
+  },
+  {
+   "default": "#D9E2F3",
+   "fieldname": "header_shading",
+   "fieldtype": "Color",
+   "label": "Header Row Shading"
+  },
+  {
+   "fieldname": "column_break_tables",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "#9E9E9E",
+   "fieldname": "border_color",
+   "fieldtype": "Color",
+   "label": "Border Color"
+  },
+  {
+   "fieldname": "page_section",
+   "fieldtype": "Section Break",
+   "label": "Page"
+  },
+  {
+   "default": "A4",
+   "fieldname": "page_size",
+   "fieldtype": "Select",
+   "label": "Page Size",
+   "options": "A4\nLetter"
+  },
+  {
+   "fieldname": "column_break_page",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "18",
+   "fieldname": "margin_top",
+   "fieldtype": "Float",
+   "label": "Top Margin (mm)",
+   "precision": "1"
+  },
+  {
+   "default": "18",
+   "fieldname": "margin_bottom",
+   "fieldtype": "Float",
+   "label": "Bottom Margin (mm)",
+   "precision": "1"
+  },
+  {
+   "default": "18",
+   "fieldname": "margin_left",
+   "fieldtype": "Float",
+   "label": "Left Margin (mm)",
+   "precision": "1"
+  },
+  {
+   "default": "18",
+   "fieldname": "margin_right",
+   "fieldtype": "Float",
+   "label": "Right Margin (mm)",
+   "precision": "1"
+  }
+ ],
+ "links": [],
+ "modified": "2026-09-27 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DocStudio",
+ "name": "DocStudio Theme",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "theme_name"
+}

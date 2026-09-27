@@ -1,0 +1,192 @@
+{
+ "actions": [],
+ "autoname": "field:template_name",
+ "creation": "2026-09-26 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "template_name",
+  "reference_doctype",
+  "template_type",
+  "builtin_key",
+  "custom_builder",
+  "column_break_main",
+  "theme",
+  "is_default",
+  "enabled",
+  "is_standard",
+  "highlight_section",
+  "title_field",
+  "party_field",
+  "date_field",
+  "column_break_hl",
+  "total_field",
+  "company_field",
+  "content_section",
+  "default_terms",
+  "layout_json",
+  "mapping_section",
+  "field_mapping"
+ ],
+ "fields": [
+  {
+   "fieldname": "template_name",
+   "fieldtype": "Data",
+   "label": "Template Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Reference DocType",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "default": "Auto",
+   "fieldname": "template_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Template Type",
+   "options": "Auto\nBuilt-in\nCustom"
+  },
+  {
+   "depends_on": "eval:doc.template_type=='Built-in'",
+   "fieldname": "builtin_key",
+   "fieldtype": "Data",
+   "label": "Built-in Layout",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.template_type=='Custom'",
+   "description": "Key of a layout registered by an app through the <code>docstudio_templates</code> hook.",
+   "fieldname": "custom_builder",
+   "fieldtype": "Data",
+   "label": "Custom Layout",
+   "mandatory_depends_on": "eval:doc.template_type=='Custom'"
+  },
+  {
+   "fieldname": "column_break_main",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "theme",
+   "fieldtype": "Link",
+   "label": "Theme",
+   "options": "DocStudio Theme"
+  },
+  {
+   "fieldname": "is_default",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Default for this DocType"
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "is_standard",
+   "fieldtype": "Check",
+   "label": "Is Standard",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "description": "Optional. Unset fields are guessed from fieldnames and labels.",
+   "fieldname": "highlight_section",
+   "fieldtype": "Section Break",
+   "label": "Highlight Fields"
+  },
+  {
+   "fieldname": "title_field",
+   "fieldtype": "Select",
+   "label": "Document Title Field"
+  },
+  {
+   "fieldname": "party_field",
+   "fieldtype": "Select",
+   "label": "Party Field"
+  },
+  {
+   "fieldname": "date_field",
+   "fieldtype": "Select",
+   "label": "Date Field"
+  },
+  {
+   "fieldname": "column_break_hl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_field",
+   "fieldtype": "Select",
+   "label": "Total Field"
+  },
+  {
+   "fieldname": "company_field",
+   "fieldtype": "Select",
+   "label": "Company Field"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "content_section",
+   "fieldtype": "Section Break",
+   "label": "Content"
+  },
+  {
+   "fieldname": "default_terms",
+   "fieldtype": "Link",
+   "label": "Default Terms Block",
+   "options": "DocStudio Terms Block"
+  },
+  {
+   "description": "Section order and visibility. Set it from the preview (Save Layout to Template) rather than by hand.",
+   "fieldname": "layout_json",
+   "fieldtype": "JSON",
+   "label": "Layout"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.template_type!='Auto'",
+   "fieldname": "mapping_section",
+   "fieldtype": "Section Break",
+   "label": "Field Mapping"
+  },
+  {
+   "fieldname": "field_mapping",
+   "fieldtype": "Table",
+   "label": "Field Mapping",
+   "options": "DocStudio Field Mapping"
+  }
+ ],
+ "links": [],
+ "modified": "2026-09-27 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DocStudio",
+ "name": "DocStudio Template",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "template_name"
+}
