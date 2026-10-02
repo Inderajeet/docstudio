@@ -7,7 +7,7 @@ installing or using the app, you agree to them.
 
 ## 1. License
 
-DocStudio is free and open source under the [MIT License](../license.txt). You may use, copy,
+DocStudio is free and open source under the [MIT License](https://github.com/Inderajeet/docstudio/blob/main/license.txt). You may use, copy,
 modify and distribute it under the terms of that license.
 
 ## 2. Your responsibilities
