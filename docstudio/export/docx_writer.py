@@ -678,6 +678,11 @@ def _ensure(parent, tag, replace=False):
 	return el
 
 
+def _inside(path, roots):
+	path = os.path.abspath(path)
+	return any(path.startswith(os.path.abspath(r) + os.sep) for r in roots)
+
+
 def _load_image(url):
 	"""A PNG/JPEG stream for a site file or asset URL, or None."""
 	if not url or url.startswith(("http://", "https://", "data:")):
@@ -688,11 +693,11 @@ def _load_image(url):
 			name = frappe.db.get_value("File", {"file_url": url}, "name")
 			if name:
 				path = frappe.get_doc("File", name).get_full_path()
-			else:
-				path = frappe.get_site_path(url.lstrip("/") if url.startswith("/private") else "public" + url)
+			roots = (frappe.get_site_path("public", "files"), frappe.get_site_path("private", "files"))
 		elif url.startswith("/assets/"):
 			path = os.path.join(frappe.local.sites_path, url.lstrip("/"))
-		if not path or not os.path.exists(path):
+			roots = (os.path.join(frappe.local.sites_path, "assets"),)
+		if not path or not _inside(path, roots) or not os.path.isfile(path):
 			return None
 		from PIL import Image
 

@@ -1,8 +1,5 @@
 """Install/migrate hooks and the "Sync Standard Templates" action."""
 
-import json
-import os
-
 import frappe
 from frappe import _
 
@@ -15,13 +12,12 @@ def after_migrate():
 	sync_standard()
 
 
-def _load(filename):
-	with open(os.path.join(os.path.dirname(__file__), "standard", filename)) as f:
-		return json.load(f)
+def _standard_themes():
+	return frappe.get_file_json(frappe.get_app_path("docstudio", "standard", "themes.json"))
 
 
 def sync_themes():
-	for data in _load("themes.json"):
+	for data in _standard_themes():
 		name = data["theme_name"]
 		doc = (
 			frappe.get_doc("DocStudio Theme", name)
@@ -85,13 +81,11 @@ def sync_standard():
 	if not settings.default_theme:
 		settings.default_theme = "Business"
 		settings.save(ignore_permissions=True)
-	synced = sync_templates()
-	frappe.db.commit()
-	return synced
+	return sync_templates()
 
 
 @frappe.whitelist(methods=["POST"])
 def sync_standard_templates():
 	frappe.only_for("System Manager")
 	synced = sync_standard()
-	return {"themes": len(_load("themes.json")), "templates": synced}
+	return {"themes": len(_standard_themes()), "templates": synced}
